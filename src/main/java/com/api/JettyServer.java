@@ -1,0 +1,30 @@
+package com.api;
+
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.servlet.ServletHolder;
+import org.glassfish.jersey.servlet.ServletContainer;
+
+import java.net.InetSocketAddress;
+
+public class JettyServer {
+    public static void main(String[] args){
+        final Server server = new Server(new InetSocketAddress("127.0.0.1", 8080));
+
+        ServletContextHandler handler = new ServletContextHandler();
+        handler.setContextPath("/api");
+
+        ServletHolder helloWorldServlet = new ServletHolder(new ServletContainer(new APIApp()));
+
+        handler.addServlet(helloWorldServlet, "/*");
+
+        server.setHandler(handler);
+
+        try {
+            server.start();
+            server.join();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
