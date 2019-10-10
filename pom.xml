@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.myproject</groupId>
-    <artifactId>DrawTogether</artifactId>
+    <artifactId>DrawTogetherAPIServer</artifactId>
     <version>1.0-SNAPSHOT</version>
 
 
