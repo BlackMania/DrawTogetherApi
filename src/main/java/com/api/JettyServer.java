@@ -14,9 +14,9 @@ public class JettyServer {
         ServletContextHandler handler = new ServletContextHandler();
         handler.setContextPath("/api");
 
-        ServletHolder helloWorldServlet = new ServletHolder(new ServletContainer(new APIApp()));
+        ServletHolder servlet = new ServletHolder(new ServletContainer(new APIApp()));
 
-        handler.addServlet(helloWorldServlet, "/*");
+        handler.addServlet(servlet, "/*");
 
         server.setHandler(handler);
 
