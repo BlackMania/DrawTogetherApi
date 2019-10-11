@@ -3,7 +3,7 @@ package com.api.logincomponent.resources;
 import com.api.logincomponent.tokenlogic.TokenHelper;
 import com.sun.jersey.core.util.Base64;
 
-import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.*;
@@ -12,7 +12,7 @@ import java.util.StringTokenizer;
 @Path("secured")
 public class LoginResource {
 
-    @GET
+    @POST
     @Path("login")
     @Produces(MediaType.TEXT_PLAIN)
     public String login(@Context HttpHeaders headers){
@@ -25,7 +25,7 @@ public class LoginResource {
         return tokenHelper.issueToken(username);
     }
 
-    @GET
+    @POST
     @Path("tokenauth")
     public Response verify() {
         return Response
