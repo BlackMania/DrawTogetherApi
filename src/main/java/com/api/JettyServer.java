@@ -9,7 +9,7 @@ import java.net.InetSocketAddress;
 
 public class JettyServer {
     public static void main(String[] args){
-        final Server server = new Server(new InetSocketAddress("127.0.0.1", 8080));
+        final Server server = new Server(new InetSocketAddress("localhost", 9091));
 
         ServletContextHandler handler = new ServletContextHandler();
         handler.setContextPath("/api");
