@@ -13,5 +13,6 @@ public class APIApp extends ResourceConfig {
         register(LoginResource.class);
         register(BasicAuthFilter.class);
         register(TokenAuthFilter.class);
+        register(CorsProvider.class);
     }
 }

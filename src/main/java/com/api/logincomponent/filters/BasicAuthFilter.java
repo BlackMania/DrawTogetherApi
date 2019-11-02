@@ -9,13 +9,13 @@ import javax.annotation.Priority;
 import javax.ws.rs.Priorities;
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
+import javax.ws.rs.container.ContainerResponseContext;
 import javax.ws.rs.core.Response;
 import java.io.IOException;
 import java.util.List;
 import java.util.StringTokenizer;
 
 
-@Priority(Priorities.AUTHORIZATION)
 public class BasicAuthFilter implements ContainerRequestFilter {
     private static final String AUTHENTICATION_HEADER_KEY = "Authorization";
     private static final String AUTHENTICATION_HEADER_PREFIX = "Basic ";
@@ -66,7 +66,6 @@ public class BasicAuthFilter implements ContainerRequestFilter {
                 .entity(Response.Status.UNAUTHORIZED.getStatusCode() + " " + Response.Status.UNAUTHORIZED.getReasonPhrase())
                 .build();
         containerRequestContext.abortWith(unauthorizedResponse);
-        return;
     }
 
 }
