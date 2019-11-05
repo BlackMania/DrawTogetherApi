@@ -36,6 +36,14 @@ public class BasicAuthFilter implements ContainerRequestFilter {
                 }
                 authToken = authToken.replace(AUTHENTICATION_HEADER_PREFIX, "");
                 String decodedString = Base64.base64Decode(authToken);
+                if(decodedString.equals(":"))
+                {
+                    Response badRequestResponse = Response.status(Response.Status.BAD_REQUEST)
+                            .entity(Response.Status.BAD_REQUEST.getStatusCode() + " " + Response.Status.BAD_REQUEST.getReasonPhrase())
+                            .build();
+                    containerRequestContext.abortWith(badRequestResponse);
+                    return;
+                }
                 StringTokenizer tokenizer = new StringTokenizer(decodedString, ":");
                 String username = tokenizer.nextToken();
                 String password = tokenizer.nextToken();
