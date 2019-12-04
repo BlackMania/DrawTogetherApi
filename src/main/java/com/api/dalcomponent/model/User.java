@@ -5,11 +5,45 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "account")
 public class User {
+    @DatabaseField(columnName = "accountid", generatedId = true)
+    private int accountid;
+
+    @DatabaseField(columnName = "clientid")
+    private String clientid;
+
     @DatabaseField(columnName = "username")
     private String username;
 
     @DatabaseField(columnName = "password")
     private String password;
+
+    @DatabaseField(columnName = "salt")
+    private String salt;
+
+    //region getters and setters
+    public int getId() {
+        return accountid;
+    }
+
+    public void setId(int id) {
+        this.accountid = id;
+    }
+
+    public String getClientid() {
+        return clientid;
+    }
+
+    public void setClientid(String clientid) {
+        this.clientid = clientid;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
 
     public String getUsername() {
         return username;
@@ -26,4 +60,5 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+    //endregion
 }
