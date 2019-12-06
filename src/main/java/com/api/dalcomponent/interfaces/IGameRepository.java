@@ -1,4 +1,7 @@
 package com.api.dalcomponent.interfaces;
 
-public interface IGameRepository<Game> extends IRepository<Game>  {
+
+import com.api.dalcomponent.model.Game;
+
+public interface IGameRepository<T extends Game> extends IRepository<Game>  {
 }

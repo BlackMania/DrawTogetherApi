@@ -1,12 +1,12 @@
 package com.api.dalcomponent.repository;
 import com.api.dalcomponent.interfaces.IUserRepository;
-import com.j256.ormlite.support.ConnectionSource;
+import com.api.dalcomponent.model.User;
 
-import java.sql.SQLException;
-
-public class UserRepository<User> extends Repository<User> implements IUserRepository<User> {
-    public UserRepository(Class<User> clazz) {
-        super(clazz);
+import javax.inject.Inject;
+public class UserRepository<T extends User> extends Repository<User> implements IUserRepository<User> {
+    @Inject
+    public UserRepository() {
+        super(User.class);
     }
 }
 
