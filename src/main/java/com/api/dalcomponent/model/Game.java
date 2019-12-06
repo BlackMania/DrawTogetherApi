@@ -7,38 +7,20 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "gamehistory")
 public class Game {
-    @DatabaseField(id=true)
+
+    public Game() {
+    }
+
+    @DatabaseField(id = true, columnName = "gameid")
     private int gameid;
 
-    @DatabaseField(columnName = "sessionid")
+    @DatabaseField()
     private String sessionid;
 
-    @ForeignCollectionField
+    @ForeignCollectionField(eager = true)
     private ForeignCollection<Player> players;
 
-    //region getters and setters
-    public int getGameid() {
-        return gameid;
-    }
+    @ForeignCollectionField(eager = true)
+    private ForeignCollection<Round> rounds;
 
-    public void setGameid(int gameid) {
-        this.gameid = gameid;
-    }
-
-    public String getSessionid() {
-        return sessionid;
-    }
-
-    public void setSessionid(String sessionid) {
-        this.sessionid = sessionid;
-    }
-
-    public ForeignCollection<Player> getPlayers() {
-        return players;
-    }
-
-    public void setPlayers(ForeignCollection<Player> players) {
-        this.players = players;
-    }
-    //endregion
 }

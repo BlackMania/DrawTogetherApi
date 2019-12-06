@@ -1,11 +1,13 @@
 package com.api.dalcomponent.model;
 
+import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "account")
 public class User {
-    @DatabaseField(columnName = "accountid", generatedId = true)
+    @DatabaseField(columnName = "accountid", id = true)
     private int accountid;
 
     @DatabaseField(columnName = "clientid")
@@ -19,6 +21,9 @@ public class User {
 
     @DatabaseField(columnName = "salt")
     private String salt;
+
+    @ForeignCollectionField(eager=false, columnName = "accountid")
+    private ForeignCollection<Player> player;
 
     //region getters and setters
     public int getId() {
@@ -60,5 +65,5 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    //endregion
+//endregion
 }
