@@ -1,8 +1,8 @@
 package com.api.restapi.resources;
-
 import com.api.dalcomponent.interfaces.IGameRepository;
+import com.api.dalcomponent.interfaces.IUserRepository;
 import com.api.dalcomponent.model.Game;
-import com.api.dalcomponent.repository.GameRepository;
+import com.api.dalcomponent.model.User;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -20,23 +20,21 @@ public class GameHistoryResource {
     private IGameRepository<Game> gameRepo;
 
     @Inject
-    public GameHistoryResource(IGameRepository<Game> game) {
-        this.gameRepo = game;
+    public GameHistoryResource(IGameRepository<Game> gameRepo) {
+        this.gameRepo = gameRepo;
     }
 
 
     @GET
     @Path("gamehistory/{clientid}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getGameData(@PathParam("clientid") String clientid){
+    public Response getGameDataByUserId(@PathParam("clientid") String clientid){
         List<Game> games = null;
         try {
-            games = gameRepo.getAll();
+            games = gameRepo.findByClientId(clientid);
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        System.out.print(games.get(0));
 
         return null;
     }
