@@ -1,6 +1,7 @@
 package com.api;
 
 import com.api.restapi.resources.GameHistoryResource;
+import com.api.restapi.resources.LoginResource;
 import org.glassfish.jersey.server.ResourceConfig;
 
 import javax.ws.rs.ApplicationPath;
@@ -11,6 +12,7 @@ public class APIApp extends ResourceConfig {
         register(new InjectBinder());
         register(GameHistoryResource.class);
         register(CorsProvider.class);
+        register(LoginResource.class);
     }
 
 }

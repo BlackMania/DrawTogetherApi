@@ -65,5 +65,14 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-//endregion
+
+    public ForeignCollection<Player> getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(ForeignCollection<Player> player) {
+        this.player = player;
+    }
+
+    //endregion
 }

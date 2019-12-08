@@ -1,6 +1,5 @@
 package com.api;
 
-import com.api.dalcomponent.DBContext;
 import com.api.dalcomponent.interfaces.IGameRepository;
 import com.api.dalcomponent.interfaces.IUserRepository;
 import com.api.dalcomponent.repository.GameRepository;
