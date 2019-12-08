@@ -3,11 +3,13 @@ package com.api.restapi.models;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
+
 public class LoginModel {
-    @XmlElement(name="username")
+    public LoginModel() {
+    }
+
     private String username;
-    @XmlElement(name="password")
+
     private String password;
 
     public String getUsername() {
