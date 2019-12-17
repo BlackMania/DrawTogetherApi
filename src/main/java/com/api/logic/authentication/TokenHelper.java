@@ -1,4 +1,4 @@
-package com.api.logic.tokenlogic;
+package com.api.logic.authentication;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
