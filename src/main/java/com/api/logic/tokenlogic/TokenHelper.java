@@ -1,10 +1,9 @@
-package com.api.restapi.tokenlogic;
+package com.api.logic.tokenlogic;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 
 import javax.crypto.SecretKey;
-import java.security.Key;
 import java.util.Date;
 
 public class TokenHelper {

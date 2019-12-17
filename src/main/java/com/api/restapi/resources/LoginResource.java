@@ -4,13 +4,11 @@ import com.api.dalcomponent.interfaces.IUserRepository;
 import com.api.dalcomponent.model.User;
 import com.api.restapi.models.LoginModel;
 import com.api.restapi.models.TokenModel;
-import com.api.restapi.tokenlogic.TokenHelper;
+import com.api.logic.tokenlogic.TokenHelper;
 import io.jsonwebtoken.JwtException;
 import org.json.JSONObject;
 
 import javax.inject.Inject;
-import javax.json.Json;
-import javax.json.JsonObject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;

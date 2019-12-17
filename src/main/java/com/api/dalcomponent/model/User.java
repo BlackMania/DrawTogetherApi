@@ -19,9 +19,6 @@ public class User {
     @DatabaseField(columnName = "password")
     private String password;
 
-    @DatabaseField(columnName = "salt")
-    private String salt;
-
     @ForeignCollectionField(eager=false, columnName = "accountid")
     private ForeignCollection<Player> player;
 
@@ -40,14 +37,6 @@ public class User {
 
     public void setClientid(String clientid) {
         this.clientid = clientid;
-    }
-
-    public String getSalt() {
-        return salt;
-    }
-
-    public void setSalt(String salt) {
-        this.salt = salt;
     }
 
     public String getUsername() {
