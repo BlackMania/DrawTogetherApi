@@ -19,10 +19,21 @@ public class User {
     @DatabaseField(columnName = "password")
     private String password;
 
+    @DatabaseField(columnName = "email")
+    private String email;
+
     @ForeignCollectionField(eager=false, columnName = "accountid")
     private ForeignCollection<Player> player;
 
     //region getters and setters
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public int getId() {
         return accountid;
     }

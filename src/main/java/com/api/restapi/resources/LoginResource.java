@@ -1,15 +1,12 @@
 package com.api.restapi.resources;
 
-import com.api.logic.authentication.LoginHandler;
+import com.api.logic.authentication.AuthHandler;
 import com.api.restapi.models.LoginModel;
 import com.api.restapi.models.TokenModel;
-import com.api.logic.authentication.TokenHelper;
 import com.api.restapi.response.ResponseBuilder;
-import io.jsonwebtoken.JwtException;
 import org.json.JSONObject;
 
 import javax.inject.Inject;
-import javax.naming.AuthenticationException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -20,10 +17,10 @@ import javax.ws.rs.core.Response;
 @Path("auth")
 public class LoginResource {
 
-    private LoginHandler handler;
+    private AuthHandler handler;
 
     @Inject
-    public LoginResource(LoginHandler handler) {
+    public LoginResource(AuthHandler handler) {
         this.handler = handler;
     }
 
@@ -33,25 +30,17 @@ public class LoginResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response login(LoginModel login) {
         JSONObject json = new JSONObject();
-        TokenHelper tokenHelper = new TokenHelper();
         String token;
 
-        try {
-            token = handler.login(login.getUsername(), login.getPassword());
+        if(handler.validateLoginAttempt(login.getUsername(), login.getPassword()))
+        {
+            token = handler.getToken();
             json.put("token", token);
-        } catch (AuthenticationException e) {
-            json.put("error", e.getMessage());
-            return Response
-                    .status(Response.Status.OK)
-                    .header("Access-Control-Allow-Origin", "*")
-                    .entity(json.toString())
-                    .build();
         }
-        return Response
-                .status(Response.Status.OK)
-                .header("Access-Control-Allow-Origin", "*")
-                .entity(json.toString())
-                .build();
+        else {
+            json.put("error", "Invalid login credentials");
+        }
+        return ResponseBuilder.buildResponse(Response.Status.OK, json);
     }
 
     @POST
@@ -59,12 +48,9 @@ public class LoginResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response tokenAuth(TokenModel tokenModel) {
-        TokenHelper tokenHelper = new TokenHelper();
-        try {
-            tokenHelper.verifyToken(tokenModel.getToken());
-        } catch (JwtException exc) {
-            return Response.status(Response.Status.UNAUTHORIZED).build();
-        }
-        return Response.status(Response.Status.OK).build();
+        if(handler.validateTokenAuthAttempt(tokenModel.getToken()))
+        {
+            return ResponseBuilder.buildResponse(Response.Status.OK);
+        } else return ResponseBuilder.buildResponse(Response.Status.UNAUTHORIZED);
     }
 }

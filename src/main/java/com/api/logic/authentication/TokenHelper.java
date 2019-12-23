@@ -6,12 +6,12 @@ import io.jsonwebtoken.security.Keys;
 import javax.crypto.SecretKey;
 import java.util.Date;
 
-public class TokenHelper {
+class TokenHelper {
     private static final String SERVER_IP = "localhost";
     private static final String PORT = "8080";
     private static final SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
-    public String issueToken(String username, String clientid) {
+    String issueToken(String username, String clientid) {
         String payload = Jwts.builder()
                 .setIssuer("auth-server")
                 .setIssuedAt(new Date())
@@ -24,7 +24,7 @@ public class TokenHelper {
         return payload;
     }
 
-    public void verifyToken(String jwsToken)
+    void verifyToken(String jwsToken)
     {
         Jws<Claims> jws;
         try {

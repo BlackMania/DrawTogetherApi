@@ -3,6 +3,8 @@ import com.api.dalcomponent.interfaces.IGameRepository;
 import com.api.dalcomponent.interfaces.IUserRepository;
 import com.api.dalcomponent.model.Game;
 import com.api.dalcomponent.model.User;
+import com.api.restapi.response.ResponseBuilder;
+import org.json.JSONObject;
 
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -37,5 +39,14 @@ public class GameHistoryResource {
         }
 
         return null;
+    }
+
+    @GET
+    @Path("gamehistory/me")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getMyData(){
+        JSONObject obj = new JSONObject();
+        obj.put("Nice", "GOOD");
+        return ResponseBuilder.buildResponse(Response.Status.OK, obj);
     }
 }
