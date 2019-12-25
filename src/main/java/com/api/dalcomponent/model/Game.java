@@ -23,4 +23,27 @@ public class Game {
     @ForeignCollectionField(eager = true)
     private ForeignCollection<Round> rounds;
 
+    public String getSessionid() {
+        return sessionid;
+    }
+
+    public void setSessionid(String sessionid) {
+        this.sessionid = sessionid;
+    }
+
+    public ForeignCollection<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(ForeignCollection<Player> players) {
+        this.players = players;
+    }
+
+    public ForeignCollection<Round> getRounds() {
+        return rounds;
+    }
+
+    public void setRounds(ForeignCollection<Round> rounds) {
+        this.rounds = rounds;
+    }
 }

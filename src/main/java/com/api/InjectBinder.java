@@ -6,6 +6,8 @@ import com.api.dalcomponent.repository.GameRepository;
 import com.api.dalcomponent.repository.UserRepository;
 import com.api.logic.authentication.AuthHandler;
 import com.api.logic.authentication.RegisterHandler;
+import com.api.logic.datalogic.interfaces.GameHistoryProcessorable;
+import com.api.logic.datalogic.processors.GameHistoryProcessor;
 import org.glassfish.jersey.internal.inject.AbstractBinder;
 
 public class InjectBinder extends AbstractBinder {
@@ -15,5 +17,6 @@ public class InjectBinder extends AbstractBinder {
         bind(UserRepository.class).to(IUserRepository.class);
         bind(AuthHandler.class).to(AuthHandler.class);
         bind(RegisterHandler.class).to(RegisterHandler.class);
+        bind(GameHistoryProcessor.class).to(GameHistoryProcessorable.class);
     }
 }

@@ -19,4 +19,28 @@ public class Player {
 
     @DatabaseField(foreign = true, foreignAutoRefresh = true, columnName = "accountid", index = true)
     private User user;
+
+    public int getAccountid() {
+        return accountid;
+    }
+
+    public void setAccountid(int accountid) {
+        this.accountid = accountid;
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

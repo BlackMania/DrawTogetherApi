@@ -19,5 +19,36 @@ public class Round {
     @ForeignCollectionField(eager = true)
     private ForeignCollection<DrawData> drawdata;
 
+    public int getGameid() {
+        return gameid;
+    }
+
+    public void setGameid(int gameid) {
+        this.gameid = gameid;
+    }
+
+    public int getRoundid() {
+        return roundid;
+    }
+
+    public void setRoundid(int roundid) {
+        this.roundid = roundid;
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    public ForeignCollection<DrawData> getDrawdata() {
+        return drawdata;
+    }
+
+    public void setDrawdata(ForeignCollection<DrawData> drawdata) {
+        this.drawdata = drawdata;
+    }
 }
 

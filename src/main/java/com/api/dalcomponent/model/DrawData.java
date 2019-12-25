@@ -28,4 +28,76 @@ public class DrawData {
 
     @DatabaseField(foreign = true, foreignAutoRefresh = true, columnName = "roundid", index = true)
     private Round round;
+
+    public int getDrawdataid() {
+        return drawdataid;
+    }
+
+    public void setDrawdataid(int drawdataid) {
+        this.drawdataid = drawdataid;
+    }
+
+    public int getRoundid() {
+        return roundid;
+    }
+
+    public void setRoundid(int roundid) {
+        this.roundid = roundid;
+    }
+
+    public int getCurrX() {
+        return currX;
+    }
+
+    public void setCurrX(int currX) {
+        this.currX = currX;
+    }
+
+    public int getCurrY() {
+        return currY;
+    }
+
+    public void setCurrY(int currY) {
+        this.currY = currY;
+    }
+
+    public int getPrevX() {
+        return prevX;
+    }
+
+    public void setPrevX(int prevX) {
+        this.prevX = prevX;
+    }
+
+    public int getPrevY() {
+        return prevY;
+    }
+
+    public void setPrevY(int prevY) {
+        this.prevY = prevY;
+    }
+
+    public String getStrokestyle() {
+        return strokestyle;
+    }
+
+    public void setStrokestyle(String strokestyle) {
+        this.strokestyle = strokestyle;
+    }
+
+    public int getLinewidth() {
+        return linewidth;
+    }
+
+    public void setLinewidth(int linewidth) {
+        this.linewidth = linewidth;
+    }
+
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
+    }
 }
