@@ -36,7 +36,7 @@ class PasswordHasher {
         return iterations + ":" + toHex(salt) + ":" + toHex(hash);
     }
 
-    private String toHex(byte[] array) throws NoSuchAlgorithmException
+    private String toHex(byte[] array)
     {
         BigInteger bi = new BigInteger(1, array);
         String hex = bi.toString(16);
