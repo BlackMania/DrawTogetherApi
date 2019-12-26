@@ -10,13 +10,14 @@ import java.util.Map;
 
 public class JSONResponseBuilderHandler {
 
-    private static Map<ResponseType, ResponseBuilderable> responseBuilders = new HashMap<ResponseType, ResponseBuilderable>();
+    private Map<ResponseType, ResponseBuilderable> responseBuilders = new HashMap<ResponseType, ResponseBuilderable>();
 
-    static {
-        responseBuilders.put(ResponseType.GAMEHISTORY, new GameHistoryBuilder());
+    @Inject
+    public JSONResponseBuilderHandler(GameHistoryBuilder gameBuilder) {
+        responseBuilders.put(ResponseType.GAMEHISTORY, gameBuilder);
     }
 
-    public static JSONObject buildResponse(ResponseType responseType, String clientid)
+    public JSONObject buildResponse(ResponseType responseType, String clientid)
     {
         return responseBuilders.get(responseType).buildResponse(clientid);
     }

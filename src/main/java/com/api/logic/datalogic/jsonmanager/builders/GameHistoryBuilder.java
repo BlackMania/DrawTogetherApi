@@ -16,9 +16,6 @@ public class GameHistoryBuilder implements ResponseBuilderable {
 
     private GameHistoryProcessorable<Game> processor;
 
-    public GameHistoryBuilder() {
-    }
-
     @Inject
     public GameHistoryBuilder(GameHistoryProcessorable<Game> processorable) {
         this.processor = processorable;
@@ -57,7 +54,10 @@ public class GameHistoryBuilder implements ResponseBuilderable {
                     obj.put("timestamp", d.getTimestamp());
                     drawData.put(obj);
                 }
+                data.put("drawdata", drawData);
+                roundData.put(data);
             }
+            gameData.put("rounds", roundData);
             allGames.put(gameData);
         }
         object.put("gameData", allGames);

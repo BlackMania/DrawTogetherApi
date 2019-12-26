@@ -24,10 +24,12 @@ import java.util.List;
 public class GameHistoryResource {
 
     private IGameRepository<Game> gameRepo;
+    private JSONResponseBuilderHandler jsonBuilder;
 
     @Inject
-    public GameHistoryResource(IGameRepository<Game> gameRepo) {
+    public GameHistoryResource(IGameRepository<Game> gameRepo, JSONResponseBuilderHandler jsonBuilder) {
         this.gameRepo = gameRepo;
+        this.jsonBuilder = jsonBuilder;
     }
 
 
@@ -56,7 +58,7 @@ public class GameHistoryResource {
         byte[] decodedPayload = Base64.getDecoder().decode(sections[1].getBytes());
         try {
             JSONObject obj = new JSONObject(new String(decodedPayload));
-            returnObject = JSONResponseBuilderHandler.buildResponse(ResponseType.GAMEHISTORY, obj.getString("clientid"));
+            returnObject = jsonBuilder.buildResponse(ResponseType.GAMEHISTORY, obj.getString("clientid"));
         } catch (Exception exc)
         {
             exc.printStackTrace();
