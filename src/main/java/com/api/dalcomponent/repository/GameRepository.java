@@ -1,5 +1,7 @@
 package com.api.dalcomponent.repository;
 
+import com.api.dalcomponent.DBContext;
+import com.api.dalcomponent.IDBContext;
 import com.api.dalcomponent.interfaces.IGameRepository;
 import com.api.dalcomponent.model.Game;
 import com.api.dalcomponent.model.Player;
@@ -14,8 +16,8 @@ import java.util.UUID;
 
 public class GameRepository<T extends Game> extends Repository<Game> implements IGameRepository<Game> {
     @Inject
-    public GameRepository() {
-        super(Game.class);
+    public GameRepository(IDBContext dbContext) {
+        super(Game.class, dbContext);
     }
 
     @Override
