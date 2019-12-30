@@ -12,12 +12,7 @@ import java.sql.SQLException;
 public class RegisterHandlerTests {
     private IUserRepository<User> userRepo;
     public RegisterHandlerTests() {
-        try {
-            InMemTableUtils.generateInMemDatabase();
-            userRepo = new UserRepository<User>(InMemTableUtils.getContext());
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        userRepo = new UserRepository<User>(InMemTableUtils.getContext());
     }
 
     @Test
@@ -28,5 +23,15 @@ public class RegisterHandlerTests {
 
         Assert.assertEquals(2, userRepo.getAll().size());
 
+    }
+
+    @Test
+    public void registerUserWithTooBigInput()
+    {
+        RegisterHandler handler = new RegisterHandler(userRepo);
+
+        Assert.assertThrows(Exception.class, () -> {
+            handler.registerUser("verybigusernameverybigusernameverybigusernameverybigusernameverybigusernameverybigusernameverybigusernameverybigusernameverybigusernameverybigusernameverybigusernameverybigusernameverybigusernameverybigusernameverybigusernameverybigusernameverybigusernameverybigusernameverybigusernameverybigusernameverybigusernameverybigusernameverybigusernameverybigusernameverybigusernameverybigusernameverybigusernameverybigusername", "password1", "test@mail.nl");
+        });
     }
 }
