@@ -17,6 +17,14 @@ public class InMemTableUtils {
         return context;
     }
 
+    static {
+        try {
+            generateInMemDatabase();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void generateInMemDatabase() throws SQLException {
         context = new InMemoryDBContext();
         Dao<User, Integer> dao = DaoManager.createDao(context.getConnectionSource(), User.class);
