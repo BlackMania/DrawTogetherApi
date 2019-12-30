@@ -7,7 +7,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Arrays;
 
-public class HashValidationTest {
+public class HashValidationTests {
 
     @Test
     public void testAreHashesTheSame() throws InvalidKeySpecException, NoSuchAlgorithmException {
