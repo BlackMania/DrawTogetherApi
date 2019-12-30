@@ -10,7 +10,7 @@ public class PropertyReader {
     private String result = "";
     private InputStream inputStream;
 
-    public String getPropValue(String property) throws IOException {
+    public String getPropValue(String property) {
 
         try {
             Properties prop = new Properties();
@@ -28,7 +28,14 @@ public class PropertyReader {
         } catch (Exception e) {
             System.out.println("Exception: " + e);
         } finally {
-            inputStream.close();
+            try {
+                if(inputStream != null)
+                {
+                    inputStream.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return result;
     }
