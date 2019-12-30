@@ -149,6 +149,13 @@
             <artifactId>manifold-ext</artifactId>
             <version>2019.1.31</version>
         </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.190</version>
+            <scope>runtime</scope>
+        </dependency>
+
     </dependencies>
 
 </project>
