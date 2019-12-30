@@ -7,9 +7,9 @@ import javax.crypto.SecretKey;
 import java.util.Date;
 
 class TokenHelper {
-    private static final String SERVER_IP = "localhost";
-    private static final String PORT = "8080";
-    private static final SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+    private final String SERVER_IP = "localhost";
+    private final String PORT = "8080";
+    private final SecretKey key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
     String issueToken(String username, String clientid) {
         String payload = Jwts.builder()
