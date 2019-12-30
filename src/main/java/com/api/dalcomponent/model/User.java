@@ -7,7 +7,7 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "account")
 public class User {
-    @DatabaseField(columnName = "accountid", id = true)
+    @DatabaseField(columnName = "accountid", generatedId = true)
     private int accountid;
 
     @DatabaseField(columnName = "clientid")
@@ -16,7 +16,7 @@ public class User {
     @DatabaseField(columnName = "username")
     private String username;
 
-    @DatabaseField(columnName = "password")
+    @DatabaseField(columnName = "password", columnDefinition = "VARCHAR(512)")
     private String password;
 
     @DatabaseField(columnName = "email")
