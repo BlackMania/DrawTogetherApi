@@ -1,8 +1,8 @@
 package com.api.restapi.resources;
 import com.api.dalcomponent.interfaces.IGameRepository;
 import com.api.dalcomponent.model.Game;
-import com.api.logic.jsonmanager.JSONResponseBuilderHandler;
-import com.api.logic.jsonmanager.ResponseType;
+import com.api.logic.datalogic.jsonmanager.JSONResponseBuilderHandler;
+import com.api.logic.datalogic.jsonmanager.ResponseType;
 import com.api.restapi.response.ResponseBuilder;
 import org.json.JSONObject;
 

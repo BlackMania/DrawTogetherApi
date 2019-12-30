@@ -1,31 +1,38 @@
 package com.api.logic.datalogic.jsonmanager.builders;
 
+import com.api.dalcomponent.interfaces.IGameRepository;
 import com.api.dalcomponent.model.DrawData;
 import com.api.dalcomponent.model.Game;
 import com.api.dalcomponent.model.Player;
 import com.api.dalcomponent.model.Round;
-import com.api.logic.datalogic.interfaces.GameHistoryProcessorable;
 import com.api.logic.datalogic.jsonmanager.ResponseBuilderable;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.inject.Inject;
+import java.sql.SQLException;
 import java.util.List;
 
 public class GameHistoryBuilder implements ResponseBuilderable {
 
-    private GameHistoryProcessorable<Game> processor;
+    private IGameRepository<Game> gameRepo;
 
     @Inject
-    public GameHistoryBuilder(GameHistoryProcessorable<Game> processorable) {
-        this.processor = processorable;
+    public GameHistoryBuilder(IGameRepository<Game> gameRepo) {
+        this.gameRepo = gameRepo;
     }
+
 
     @Override
     public JSONObject buildResponse(String clientid) {
         JSONObject object = new JSONObject();
         JSONArray allGames = new JSONArray();
-        List<Game> games = processor.getByClientId(clientid);
+        List<Game> games = null;
+        try {
+            games = gameRepo.findByClientId(clientid);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         for(Game game : games)
         {
             JSONObject gameData = new JSONObject();

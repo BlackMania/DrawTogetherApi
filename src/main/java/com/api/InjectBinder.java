@@ -7,8 +7,8 @@ import com.api.dalcomponent.repository.GameRepository;
 import com.api.dalcomponent.repository.UserRepository;
 import com.api.logic.authentication.AuthHandler;
 import com.api.logic.authentication.RegisterHandler;
-import com.api.logic.jsonmanager.JSONResponseBuilderHandler;
-import com.api.logic.jsonmanager.builders.GameHistoryBuilder;
+import com.api.logic.datalogic.jsonmanager.JSONResponseBuilderHandler;
+import com.api.logic.datalogic.jsonmanager.builders.GameHistoryBuilder;
 import org.glassfish.jersey.internal.inject.AbstractBinder;
 
 public class InjectBinder extends AbstractBinder {

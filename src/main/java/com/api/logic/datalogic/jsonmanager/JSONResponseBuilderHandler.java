@@ -1,7 +1,6 @@
 package com.api.logic.datalogic.jsonmanager;
 
 import com.api.logic.datalogic.jsonmanager.builders.GameHistoryBuilder;
-import com.api.logic.datalogic.processors.GameHistoryProcessor;
 import org.json.JSONObject;
 
 import javax.inject.Inject;
