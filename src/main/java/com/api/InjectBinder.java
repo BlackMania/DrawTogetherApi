@@ -1,6 +1,7 @@
 package com.api;
 
 import com.api.dalcomponent.DBContext;
+import com.api.dalcomponent.IDBContext;
 import com.api.dalcomponent.interfaces.IGameRepository;
 import com.api.dalcomponent.interfaces.IUserRepository;
 import com.api.dalcomponent.repository.GameRepository;
@@ -21,6 +22,6 @@ public class InjectBinder extends AbstractBinder {
         bind(RegisterHandler.class).to(RegisterHandler.class);
         bind(GameHistoryBuilder.class).to(GameHistoryBuilder.class);
         bind(JSONResponseBuilderHandler.class).to(JSONResponseBuilderHandler.class);
-        bind(new DBContext(reader.getPropValue("db.url"), reader.getPropValue("db.user"), reader.getPropValue("db.password"))).to(DBContext.class);
+        bind(new DBContext(reader.getPropValue("db.url"), reader.getPropValue("db.user"), reader.getPropValue("db.password"))).to(IDBContext.class);
     }
 }
