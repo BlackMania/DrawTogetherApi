@@ -8,11 +8,7 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "gameplayers")
 public class Player {
 
-    @DatabaseField(columnName = "gameid", index = true)
-    private int gameid;
 
-    @DatabaseField(columnName = "accountid", index = true, id = true)
-    private int accountid;
 
     @DatabaseField(foreign = true, foreignAutoRefresh = true, columnName = "gameid", index = true)
     private Game game;
@@ -20,13 +16,6 @@ public class Player {
     @DatabaseField(foreign = true, foreignAutoRefresh = true, columnName = "accountid", index = true)
     private User user;
 
-    public int getAccountid() {
-        return accountid;
-    }
-
-    public void setAccountid(int accountid) {
-        this.accountid = accountid;
-    }
 
     public Game getGame() {
         return game;

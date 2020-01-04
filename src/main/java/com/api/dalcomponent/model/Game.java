@@ -11,7 +11,7 @@ public class Game {
     public Game() {
     }
 
-    @DatabaseField(id = true, columnName = "gameid")
+    @DatabaseField(generatedId = true, columnName = "gameid")
     private int gameid;
 
     @DatabaseField()

@@ -5,12 +5,8 @@ import com.j256.ormlite.field.DatabaseField;
 import java.sql.Timestamp;
 
 public class DrawData {
-    @DatabaseField(id = true, columnName = "drawdataid")
+    @DatabaseField(generatedId = true, columnName = "drawdataid")
     private int drawdataid;
-
-    @DatabaseField(columnName = "roundid")
-    private int roundid;
-
     @DatabaseField(columnName = "currx")
     private int currX;
     @DatabaseField(columnName = "currY")
@@ -35,14 +31,6 @@ public class DrawData {
 
     public void setDrawdataid(int drawdataid) {
         this.drawdataid = drawdataid;
-    }
-
-    public int getRoundid() {
-        return roundid;
-    }
-
-    public void setRoundid(int roundid) {
-        this.roundid = roundid;
     }
 
     public int getCurrX() {
@@ -99,5 +87,13 @@ public class DrawData {
 
     public void setTimestamp(Timestamp timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public Round getRound() {
+        return round;
+    }
+
+    public void setRound(Round round) {
+        this.round = round;
     }
 }

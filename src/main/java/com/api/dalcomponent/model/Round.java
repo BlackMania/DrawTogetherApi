@@ -7,10 +7,7 @@ import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "round")
 public class Round {
-    @DatabaseField(columnName = "gameid")
-    private int gameid;
-
-    @DatabaseField(id = true, columnName = "roundid")
+    @DatabaseField(generatedId = true, columnName = "roundid")
     private int roundid;
 
     @DatabaseField(foreign = true, columnName = "gameid")
@@ -18,14 +15,6 @@ public class Round {
 
     @ForeignCollectionField(eager = true)
     private ForeignCollection<DrawData> drawdata;
-
-    public int getGameid() {
-        return gameid;
-    }
-
-    public void setGameid(int gameid) {
-        this.gameid = gameid;
-    }
 
     public int getRoundid() {
         return roundid;
