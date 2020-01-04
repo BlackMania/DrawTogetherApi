@@ -21,15 +21,18 @@ public class GameRepository<T extends Game> extends Repository<Game> implements 
     }
 
     @Override
-    public List<Game> findByClientId(String id) throws SQLException {
-        List<Game> data = dao.queryForAll();
+    public List<Game> findByClientId(String id) {
+        List<Game> data = new ArrayList<>();
+
+        try {
+            data = dao.queryForAll();
+        } catch (SQLException exc) {
+            exc.printStackTrace();
+        }
         List<Game> returnList = new ArrayList<>();
-        for(Game game : data)
-        {
-            for(Player player : game.getPlayers())
-            {
-                if(player.getUser().getClientid().equals(id))
-                {
+        for (Game game : data) {
+            for (Player player : game.getPlayers()) {
+                if (player.getUser().getClientid().equals(id)) {
                     returnList.add(game);
                     break;
                 }
