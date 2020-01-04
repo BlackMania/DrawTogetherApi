@@ -38,7 +38,7 @@ public class AuthHandler {
                     }
                 }
             }
-        } catch (SQLException | NoSuchAlgorithmException | InvalidKeySpecException e) {
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
             e.printStackTrace();
         }
 

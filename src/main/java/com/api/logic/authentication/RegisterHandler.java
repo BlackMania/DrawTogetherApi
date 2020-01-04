@@ -17,16 +17,13 @@ public class RegisterHandler {
         hasher = new PasswordHasher();
     }
 
-    public void registerUser(String username, String password, String email) throws Exception
-    {
+    public void registerUser(String username, String password, String email) throws Exception {
         User user = new User();
         String hashedPassword = null;
 
-        try{
+        try {
             hashedPassword = hasher.generateStrongPassword(password);
-        }
-        catch(Exception exc)
-        {
+        } catch (Exception exc) {
             exc.printStackTrace();
             throw exc;
         }
@@ -35,12 +32,9 @@ public class RegisterHandler {
         user.setPassword(hashedPassword);
         user.setEmail(email);
 
-        try{
-            userRepo.save(user);
-        } catch (Exception exc)
+        if(!userRepo.save(user))
         {
-            exc.printStackTrace();
-            throw exc;
+            throw new Exception("Error registrating user");
         }
     }
 }
