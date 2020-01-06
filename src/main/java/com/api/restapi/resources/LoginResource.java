@@ -11,6 +11,8 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -47,8 +49,10 @@ public class LoginResource {
     @Path("tokenauth")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response tokenAuth(TokenModel tokenModel) {
-        if(handler.validateTokenAuthAttempt(tokenModel.getToken()))
+    public Response tokenAuth(@Context HttpHeaders header) {
+        String token = header.getRequestHeader("Authorization").get(0);
+        token = token.replace("Bearer ", "");
+        if(handler.validateTokenAuthAttempt(token))
         {
             return ResponseBuilder.buildResponse(Response.Status.OK);
         } else return ResponseBuilder.buildResponse(Response.Status.UNAUTHORIZED);

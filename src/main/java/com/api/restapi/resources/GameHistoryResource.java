@@ -1,8 +1,8 @@
 package com.api.restapi.resources;
 import com.api.dalcomponent.interfaces.IGameRepository;
 import com.api.dalcomponent.model.Game;
-import com.api.logic.datalogic.jsonmanager.JSONResponseBuilderHandler;
-import com.api.logic.datalogic.jsonmanager.ResponseType;
+import com.api.logic.jsonmanager.JSONResponseBuilderHandler;
+import com.api.logic.jsonmanager.ResponseType;
 import com.api.restapi.response.ResponseBuilder;
 import org.json.JSONObject;
 
@@ -37,11 +37,7 @@ public class GameHistoryResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getGameDataByUserId(@PathParam("clientid") String clientid){
         List<Game> games = null;
-        try {
-            games = gameRepo.findByClientId(clientid);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
 
         return null;
     }
@@ -66,5 +62,6 @@ public class GameHistoryResource {
         {
             return ResponseBuilder.buildResponse(Response.Status.OK, returnObject);
         } else return ResponseBuilder.buildResponse(Response.Status.INTERNAL_SERVER_ERROR);
+
     }
 }
