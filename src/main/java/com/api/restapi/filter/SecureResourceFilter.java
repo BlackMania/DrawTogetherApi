@@ -23,27 +23,20 @@ public class SecureResourceFilter implements ContainerRequestFilter {
     }
 
     @Override
-    public void filter(ContainerRequestContext containerRequestContext) throws IOException {
+    public void filter(ContainerRequestContext containerRequestContext) {
         Response response;
-        if(containerRequestContext.getUriInfo().getPath().contains(SECURED_URL_PREFIX))
-        {
+        if (containerRequestContext.getUriInfo().getPath().contains(SECURED_URL_PREFIX)) {
             List<String> authHeaders = containerRequestContext.getHeaders().get(AUTHENTICATION_HEADER_KEY);
-            if(authHeaders != null)
-            {
+            if (authHeaders != null) {
                 String authToken = authHeaders.get(0);
                 authToken = authToken.replace(AUTHENTICATION_HEADER_PREFIX, "");
-                try{
-                    handler.validateTokenAuthAttempt(authToken);
+                if (handler.validateTokenAuthAttempt(authToken)) {
                     return;
-                }
-                catch(Exception exc)
-                {
+                } else {
                     response = ResponseBuilder.buildResponse(Response.Status.UNAUTHORIZED, Response.Status.UNAUTHORIZED.getReasonPhrase());
+                    containerRequestContext.abortWith(response);
                 }
-            } else {
-                response = ResponseBuilder.buildResponse(Response.Status.BAD_REQUEST, Response.Status.BAD_REQUEST.getReasonPhrase());
             }
-            containerRequestContext.abortWith(response);
         }
     }
 }
