@@ -15,10 +15,10 @@ import java.util.Base64;
 import java.util.List;
 import java.util.UUID;
 
-public class AuthHandlerTests {
+public class AuthHandlerTest {
     private IUserRepository<User> userRepo;
 
-    public AuthHandlerTests() {
+    public AuthHandlerTest() {
         userRepo = new UserRepository<User>(InMemTableUtils.getContext());
     }
 

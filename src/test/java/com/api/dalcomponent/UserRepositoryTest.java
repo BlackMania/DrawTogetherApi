@@ -13,10 +13,10 @@ import java.util.List;
 import java.util.UUID;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class UserRepositoryTests {
+public class UserRepositoryTest {
     IUserRepository<User> userRepo;
 
-    public UserRepositoryTests() {
+    public UserRepositoryTest() {
         userRepo = new UserRepository<User>(InMemTableUtils.getContext());
     }
 

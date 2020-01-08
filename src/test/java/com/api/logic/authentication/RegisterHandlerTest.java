@@ -9,9 +9,9 @@ import org.junit.Test;
 
 import java.sql.SQLException;
 
-public class RegisterHandlerTests {
+public class RegisterHandlerTest {
     private IUserRepository<User> userRepo;
-    public RegisterHandlerTests() {
+    public RegisterHandlerTest() {
         userRepo = new UserRepository<User>(InMemTableUtils.getContext());
     }
 
