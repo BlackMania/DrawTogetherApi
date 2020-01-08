@@ -1,6 +1,6 @@
 package com.api.restapi.resources;
 import com.api.dalcomponent.interfaces.IGameRepository;
-import com.api.dalcomponent.model.Game;
+import com.api.dalcomponent.model.Game;;
 import com.api.logic.jsonmanager.JSONResponseBuilderHandler;
 import com.api.logic.jsonmanager.ResponseType;
 import com.api.restapi.response.ResponseBuilder;
@@ -15,7 +15,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.sql.SQLException;
 import java.util.Base64;
 import java.util.List;
 

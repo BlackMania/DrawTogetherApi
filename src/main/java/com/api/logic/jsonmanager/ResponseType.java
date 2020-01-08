@@ -1,4 +1,4 @@
-package com.api.logic.datalogic.jsonmanager;
+package com.api.logic.jsonmanager;
 
 public enum ResponseType {
     GAMEHISTORY
