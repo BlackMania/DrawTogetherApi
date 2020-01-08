@@ -21,7 +21,7 @@ public class RegisterHandlerTest {
 
         handler.registerUser("Vincent", "password1!", "testmail@mail.nl");
 
-        Assert.assertEquals(3, userRepo.getAll().size());
+        Assert.assertEquals(2, userRepo.getAll().size());
 
     }
 

@@ -74,6 +74,8 @@ public class UserRepositoryTest {
         userRepo.save(user);
 
         Assert.assertEquals(2, userRepo.getAll().size());
+        userRepo.delete(user);
+        Assert.assertEquals(1, userRepo.getAll().size());
     }
 }
 
