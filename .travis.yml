@@ -1,6 +1,6 @@
 language: java
 script:
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=BlackMania_DrawTogetherGameServer
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=BlackMania_DrawTogetherClient
 addons:
   sonarcloud:
     organization: "blackmania"
