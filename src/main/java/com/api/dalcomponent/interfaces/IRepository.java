@@ -1,6 +1,5 @@
 package com.api.dalcomponent.interfaces;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public interface IRepository<T> {

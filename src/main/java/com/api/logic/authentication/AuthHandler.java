@@ -2,20 +2,20 @@ package com.api.logic.authentication;
 
 import com.api.dalcomponent.interfaces.IUserRepository;
 import com.api.dalcomponent.model.User;
-import com.auth0.jwt.exceptions.JWTVerificationException;
 import io.jsonwebtoken.JwtException;
+import org.apache.log4j.Logger;
 
 import javax.inject.Inject;
-import javax.naming.AuthenticationException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
-import java.sql.SQLException;
 
 public class AuthHandler {
     private HashValidator validator;
     private IUserRepository<User> userRepo;
     private TokenHelper tokenHelper;
     private String token;
+
+    private final static Logger logger = Logger.getLogger(AuthHandler.class);
 
     @Inject
     public AuthHandler(IUserRepository<User> userRepo) {
@@ -39,7 +39,7 @@ public class AuthHandler {
                 }
             }
         } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-            e.printStackTrace();
+            logger.error(e);
         }
 
         return false;

@@ -4,6 +4,7 @@ import com.api.logic.authentication.RegisterHandler;
 import com.api.restapi.inputvalidator.InputValidator;
 import com.api.restapi.models.RegisterModel;
 import com.api.restapi.response.ResponseBuilder;
+import org.apache.log4j.Logger;
 
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -15,6 +16,8 @@ import javax.ws.rs.core.Response;
 @Path("/")
 public class RegisterResource {
     private RegisterHandler handler;
+
+    private final static Logger logger = Logger.getLogger(RegisterResource.class);
 
     @Inject
     public RegisterResource(RegisterHandler handler) {
@@ -33,7 +36,7 @@ public class RegisterResource {
             }
             catch (Exception exc)
             {
-                exc.printStackTrace();
+                logger.error(exc);
                 return ResponseBuilder.buildResponse(Response.Status.INTERNAL_SERVER_ERROR, "Something went wrong registrating you. Please try again");
             }
             return ResponseBuilder.buildResponse(Response.Status.OK, "You have been succesfully registered");

@@ -20,7 +20,7 @@ public class UserRepository<T extends User> extends Repository<User> implements 
         try {
             queriedUser = dao.queryForFirst(dao.queryBuilder().where().eq("clientid", id).prepare());
         } catch (SQLException exc) {
-            exc.printStackTrace();
+            logger.error(exc);
         }
 
         return queriedUser;

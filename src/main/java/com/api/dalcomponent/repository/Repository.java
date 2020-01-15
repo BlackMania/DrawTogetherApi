@@ -4,9 +4,9 @@ import com.api.dalcomponent.IDBContext;
 import com.api.dalcomponent.interfaces.IRepository;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
+import org.apache.log4j.Logger;
 
 import javax.inject.Inject;
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +16,7 @@ public abstract class Repository<T> implements IRepository<T> {
     protected Dao<T, Integer> dao;
     protected Class<T> clazz;
     private IDBContext context;
+    protected final static Logger logger = Logger.getLogger(Repository.class);
 
     @Inject
     public Repository(Class<T> clazz, IDBContext dbContext) {
@@ -24,7 +25,7 @@ public abstract class Repository<T> implements IRepository<T> {
         try {
             this.dao = DaoManager.createDao(context.getConnectionSource(), this.clazz);
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error(e);
         }
     }
 
@@ -35,8 +36,7 @@ public abstract class Repository<T> implements IRepository<T> {
             dao.create(entity);
             success = true;
         } catch (SQLException exc) {
-            exc.printStackTrace();
-            success = false;
+            logger.error(exc);
         }
         return success;
     }
@@ -47,7 +47,7 @@ public abstract class Repository<T> implements IRepository<T> {
         try {
             data = dao.queryForAll();
         } catch (SQLException exc) {
-            exc.printStackTrace();
+            logger.error(exc);
         }
         return data;
     }
@@ -59,7 +59,7 @@ public abstract class Repository<T> implements IRepository<T> {
         try {
             data = dao.queryForId(id);
         } catch (SQLException exc) {
-            exc.printStackTrace();
+            logger.error(exc);
         }
         return data;
     }
@@ -69,7 +69,7 @@ public abstract class Repository<T> implements IRepository<T> {
         try {
             dao.delete(entity);
         } catch (SQLException exc) {
-            exc.printStackTrace();
+            logger.error(exc);
         }
     }
 }

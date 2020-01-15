@@ -1,14 +1,17 @@
 package com.api;
 
+import org.apache.log4j.Logger;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Date;
 import java.util.Properties;
 
 public class PropertyReader {
     private String result = "";
     private InputStream inputStream;
+
+    private final static Logger logger = Logger.getLogger(PropertyReader.class);
 
     public String getPropValue(String property) {
 
@@ -26,7 +29,7 @@ public class PropertyReader {
 
             result = prop.getProperty(property);
         } catch (Exception e) {
-            System.out.println("Exception: " + e);
+            logger.error(e);
         } finally {
             try {
                 if(inputStream != null)
@@ -34,7 +37,7 @@ public class PropertyReader {
                     inputStream.close();
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                logger.error(e);
             }
         }
         return result;

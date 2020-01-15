@@ -3,7 +3,7 @@ package com.api.restapi.inputvalidator;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class PasswordInputTests {
+public class PasswordInputTest {
 
     // Passwords requires a capital and a lower case character and need to be 6-100 characters long
 

@@ -1,20 +1,18 @@
 package com.api.dalcomponent.repository;
 
-import com.api.dalcomponent.DBContext;
 import com.api.dalcomponent.IDBContext;
 import com.api.dalcomponent.interfaces.IGameRepository;
 import com.api.dalcomponent.model.Game;
 import com.api.dalcomponent.model.Player;
-import com.j256.ormlite.dao.GenericRawResults;
 
 import javax.inject.Inject;
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class GameRepository<T extends Game> extends Repository<Game> implements IGameRepository<Game> {
+
+
     @Inject
     public GameRepository(IDBContext dbContext) {
         super(Game.class, dbContext);
@@ -27,7 +25,7 @@ public class GameRepository<T extends Game> extends Repository<Game> implements 
         try {
             data = dao.queryForAll();
         } catch (SQLException exc) {
-            exc.printStackTrace();
+            logger.error(exc);
         }
         List<Game> returnList = new ArrayList<>();
         for (Game game : data) {
