@@ -1,8 +1,8 @@
 language: java
-script:
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=BlackMania_DrawTogetherClient
 addons:
   sonarcloud:
     organization: "blackmania"
     token:
       secure: "HuYRXbNtrf/5k2Xgu1o5vnsCVMshXspn5GcB37p5TN5Rzf71vQ0zYTKuLxzlrrYWLHIGJwM9Nz/cDSzG1oSpz/6zERGmG8cEWZkWJf2kZDhcrbTRMfNrSYPHJCBxRL+SH2LPV23i3rAVmppFVuYjptUl1iWYbxF3dtso6F0xnlrqndGRbfW2E/UGT6ql8D/IJtkZwxed0U8mWCMgDO5Td3IV9B/c6E9mHYc8sV3jJE4d1bAIVL5uSuEsVA1nRk5RKssw+de1B+aoZ3MQ2yZdPTzH/fEejwpBVDhW5bwOpRrS40roY9iKJK1Ql/e3Fod9LIsOhJTJZV38tdYrZwSkM1zabO11Qnd7jTI5UrW3tekIw89GkZmuviORZilEXvA1gs1fZmroe2bkusiU9DMsyn6++lWOKReL+aJ2PNdf1q+elKWE7+WBihkU8yMn+5irbgCspGuefbHbYhdbEn0Ojt4z7IuINi5ZVG0VkVKZV6Lar5OMoArQuJyE/40xyY0ILCeeVhpzls9pRWJx4IgE7+7gOMasb2j5aKSvaZDBKsdSpXAF6+qdTCQ5ykOv8317sP1dHDIRCsuYoss32sn4kPG969kIrEEAWKWUpB3zFSbBuIwsSslIUSuw2fnqP49kRPuFhLGOizYw+plxid+fBVwaIIVhCZ++C0eSpz3XnXY="
+script:
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=BlackMania_DrawTogetherClient
