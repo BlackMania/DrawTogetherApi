@@ -31,15 +31,12 @@ public class GameHistoryResource {
     }
 
 
-    @GET
+/*    @GET
     @Path("gamehistory/{clientid}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getGameDataByUserId(@PathParam("clientid") String clientid){
-        List<Game> games = null;
-
-
         return null;
-    }
+    }*/
 
     @GET
     @Path("gamehistory/me")
