@@ -34,7 +34,7 @@ public class PropertyReader {
                     inputStream.close();
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+
             }
         }
         return result;

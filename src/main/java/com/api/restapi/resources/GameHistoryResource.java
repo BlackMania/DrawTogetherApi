@@ -3,14 +3,12 @@ import com.api.dalcomponent.interfaces.IGameRepository;
 import com.api.dalcomponent.model.Game;
 import com.api.logic.jsonmanager.JSONResponseBuilderHandler;
 import com.api.logic.jsonmanager.ResponseType;
+import com.api.restapi.models.GameHistoryUploadModel;
 import com.api.restapi.response.ResponseBuilder;
 import org.json.JSONObject;
 
 import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
@@ -63,5 +61,14 @@ public class GameHistoryResource {
             return ResponseBuilder.buildResponse(Response.Status.OK, returnObject);
         } else return ResponseBuilder.buildResponse(Response.Status.INTERNAL_SERVER_ERROR);
 
+    }
+
+    @POST
+    @Path("gamehistory/add")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void uploadGameHistory(GameHistoryUploadModel model)
+    {
+        System.out.println("got here");
     }
 }

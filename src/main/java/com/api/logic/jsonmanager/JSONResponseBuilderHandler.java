@@ -1,6 +1,6 @@
-package com.api.logic.datalogic.jsonmanager;
+package com.api.logic.jsonmanager;
 
-import com.api.logic.datalogic.jsonmanager.builders.GameHistoryBuilder;
+import com.api.logic.jsonmanager.builders.GameHistoryBuilder;
 import org.json.JSONObject;
 
 import javax.inject.Inject;
