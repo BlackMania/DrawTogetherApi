@@ -1,4 +1,4 @@
-package com.api.logic.jsonmanager.builders;
+package com.api.logic.datalogic.jsonmanager.builders;
 
 import com.api.dalcomponent.interfaces.IGameRepository;
 import com.api.dalcomponent.model.DrawData;
@@ -10,7 +10,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.inject.Inject;
-import java.sql.SQLException;
 import java.util.List;
 
 public class GameHistoryBuilder implements ResponseBuilderable {
@@ -27,7 +26,7 @@ public class GameHistoryBuilder implements ResponseBuilderable {
     public JSONObject buildResponse(String clientid) {
         JSONObject object = new JSONObject();
         JSONArray allGames = new JSONArray();
-        List<Game> games = gameRepo.findByClientId(clientid);
+        List<Game> games =  gameRepo.findByClientId(clientid);
 
         for(Game game : games)
         {

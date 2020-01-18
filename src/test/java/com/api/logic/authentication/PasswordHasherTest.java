@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
-public class PasswordHasherTests {
+public class PasswordHasherTest {
     @Test
     public void generateHash()
     {

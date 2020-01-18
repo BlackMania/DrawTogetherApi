@@ -1,6 +1,5 @@
 package com.api.restapi.response;
 
-import org.apache.http.HttpStatus;
 import org.json.JSONObject;
 
 import javax.ws.rs.core.Response;

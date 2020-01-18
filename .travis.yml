@@ -1,3 +1,9 @@
 language: java
+sudo: false
+install: true
+addons:
+  sonarcloud:
+    organization: "blackmania"
+    token: "344f22b5fe3f9b02a637246075d5167467b37448"
 script:
-  - mvn clean verify
+  - mvn clean install sonar:sonar -Pcoverage -Dsonar.projectKey=BlackMania_DrawTogetherApi

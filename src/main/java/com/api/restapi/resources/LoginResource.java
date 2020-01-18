@@ -2,7 +2,6 @@ package com.api.restapi.resources;
 
 import com.api.logic.authentication.AuthHandler;
 import com.api.restapi.models.LoginModel;
-import com.api.restapi.models.TokenModel;
 import com.api.restapi.response.ResponseBuilder;
 import org.json.JSONObject;
 

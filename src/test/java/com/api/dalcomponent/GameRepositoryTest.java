@@ -13,10 +13,10 @@ import java.util.List;
 import java.util.UUID;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class GameRepositoryTests {
+public class GameRepositoryTest {
 
     IGameRepository<Game> gameRepo;
-    public GameRepositoryTests() {
+    public GameRepositoryTest() {
         gameRepo = new GameRepository<Game>(InMemTableUtils.getContext());
     }
 

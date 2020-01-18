@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.util.Base64;
 import java.util.UUID;
 
-public class TokenTests {
+public class TokenTest {
 
     TokenHelper helper = new TokenHelper();
 

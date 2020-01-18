@@ -3,7 +3,7 @@ package com.api.restapi.inputvalidator;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class InputEmailTests {
+public class InputEmailTest {
     @Test
     public void testValidEmailAddress() {
         String email = "test@email.com";

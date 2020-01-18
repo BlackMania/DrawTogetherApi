@@ -1,10 +1,10 @@
 package com.api.restapi.resources;
-import com.api.dalcomponent.interfaces.IGameRepository;
-import com.api.dalcomponent.model.Game;
+import com.api.dalcomponent.model.Game;;
 import com.api.logic.jsonmanager.JSONResponseBuilderHandler;
 import com.api.logic.jsonmanager.ResponseType;
 import com.api.restapi.models.GameHistoryUploadModel;
 import com.api.restapi.response.ResponseBuilder;
+import org.apache.log4j.Logger;
 import org.json.JSONObject;
 
 import javax.inject.Inject;
@@ -13,32 +13,28 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.sql.SQLException;
 import java.util.Base64;
 import java.util.List;
 
 @Path("secured")
 public class GameHistoryResource {
 
-    private IGameRepository<Game> gameRepo;
     private JSONResponseBuilderHandler jsonBuilder;
 
+    private final static Logger logger = Logger.getLogger(GameHistoryResource.class);
+
     @Inject
-    public GameHistoryResource(IGameRepository<Game> gameRepo, JSONResponseBuilderHandler jsonBuilder) {
-        this.gameRepo = gameRepo;
+    public GameHistoryResource(JSONResponseBuilderHandler jsonBuilder) {
         this.jsonBuilder = jsonBuilder;
     }
 
 
-    @GET
+/*    @GET
     @Path("gamehistory/{clientid}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getGameDataByUserId(@PathParam("clientid") String clientid){
-        List<Game> games = null;
-
-
         return null;
-    }
+    }*/
 
     @GET
     @Path("gamehistory/me")
@@ -54,7 +50,7 @@ public class GameHistoryResource {
             returnObject = jsonBuilder.buildResponse(ResponseType.GAMEHISTORY, obj.getString("clientid"));
         } catch (Exception exc)
         {
-            exc.printStackTrace();
+            logger.error(exc);
         }
         if(returnObject != null)
         {

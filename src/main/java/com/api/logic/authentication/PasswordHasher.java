@@ -9,10 +9,12 @@ import java.security.spec.InvalidKeySpecException;
 import java.util.Random;
 
 class PasswordHasher {
-    private final int iterations = 65536;
+
+    private Random random;
 
     PasswordHasher() {
         generateSalt();
+        random = new Random();
     }
 
     private byte[] generateSalt()
@@ -24,8 +26,7 @@ class PasswordHasher {
     }
 
     String generateStrongPassword(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        Random rn = new Random();
-        int iterations = 10000 + rn.nextInt(90000);
+        int iterations = 10000 + random.nextInt(90000);
         char[] passChars = password.toCharArray();
         byte[] salt = generateSalt();
 

@@ -2,6 +2,7 @@ package com.api.logic.authentication;
 
 import com.api.dalcomponent.interfaces.IUserRepository;
 import com.api.dalcomponent.model.User;
+import org.apache.log4j.Logger;
 
 import javax.inject.Inject;
 import java.util.UUID;
@@ -10,6 +11,8 @@ public class RegisterHandler {
 
     private IUserRepository<User> userRepo;
     private PasswordHasher hasher;
+
+    private final static Logger logger = Logger.getLogger(RegisterHandler.class);
 
     @Inject
     public RegisterHandler(IUserRepository<User> userRepo) {
@@ -24,7 +27,7 @@ public class RegisterHandler {
         try {
             hashedPassword = hasher.generateStrongPassword(password);
         } catch (Exception exc) {
-            exc.printStackTrace();
+            logger.error(exc);
             throw exc;
         }
         user.setClientid(UUID.randomUUID().toString());
