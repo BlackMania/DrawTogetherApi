@@ -15,7 +15,7 @@ public class AuthHandler {
     private TokenHelper tokenHelper;
     private String token;
 
-    private final static Logger logger = Logger.getLogger(AuthHandler.class);
+    private static final Logger logger = Logger.getLogger(AuthHandler.class);
 
     @Inject
     public AuthHandler(IUserRepository<User> userRepo) {

@@ -42,6 +42,16 @@ public class AuthHandlerTest {
     }
 
     @Test
+    public void validateLoginAttemptWithNoRecognizeedUsername()
+    {
+        AuthHandler handler = new AuthHandler(userRepo);
+
+        boolean result = handler.validateLoginAttempt("test", "password");
+
+        Assert.assertFalse(result);
+    }
+
+    @Test
     public void tokenIsNotNullWhenLoginAttemptIsValid()
     {
         AuthHandler handler = new AuthHandler(userRepo);

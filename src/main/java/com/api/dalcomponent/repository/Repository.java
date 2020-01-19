@@ -15,7 +15,7 @@ import java.util.List;
 public abstract class Repository<T> implements IRepository<T> {
     protected Dao<T, Integer> dao;
     private IDBContext context;
-    protected final static Logger logger = Logger.getLogger(Repository.class);
+    protected static final Logger logger = Logger.getLogger(Repository.class);
 
     @Inject
     public Repository(Class<T> clazz, IDBContext dbContext) {

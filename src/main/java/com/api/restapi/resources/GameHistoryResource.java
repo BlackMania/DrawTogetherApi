@@ -1,5 +1,4 @@
 package com.api.restapi.resources;
-import com.api.dalcomponent.model.Game;;
 import com.api.logic.jsonmanager.JSONResponseBuilderHandler;
 import com.api.logic.jsonmanager.ResponseType;
 import com.api.restapi.models.GameHistoryUploadModel;
@@ -14,14 +13,13 @@ import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.Base64;
-import java.util.List;
 
 @Path("secured")
 public class GameHistoryResource {
 
     private JSONResponseBuilderHandler jsonBuilder;
 
-    private final static Logger logger = Logger.getLogger(GameHistoryResource.class);
+    private static final Logger logger = Logger.getLogger(GameHistoryResource.class);
 
     @Inject
     public GameHistoryResource(JSONResponseBuilderHandler jsonBuilder) {

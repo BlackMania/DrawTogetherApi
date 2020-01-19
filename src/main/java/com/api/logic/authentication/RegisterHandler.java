@@ -12,7 +12,7 @@ public class RegisterHandler {
     private IUserRepository<User> userRepo;
     private PasswordHasher hasher;
 
-    private final static Logger logger = Logger.getLogger(RegisterHandler.class);
+    private static final Logger logger = Logger.getLogger(RegisterHandler.class);
 
     @Inject
     public RegisterHandler(IUserRepository<User> userRepo) {

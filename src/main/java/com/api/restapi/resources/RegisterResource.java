@@ -17,7 +17,7 @@ import javax.ws.rs.core.Response;
 public class RegisterResource {
     private RegisterHandler handler;
 
-    private final static Logger logger = Logger.getLogger(RegisterResource.class);
+    private static final Logger logger = Logger.getLogger(RegisterResource.class);
 
     @Inject
     public RegisterResource(RegisterHandler handler) {

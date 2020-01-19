@@ -11,7 +11,7 @@ public class DBContext implements IDBContext {
     private ConnectionSource connectionSource;
 
 
-    private final static Logger logger = Logger.getLogger(DBContext.class);
+    private static final Logger logger = Logger.getLogger(DBContext.class);
 
 
     public DBContext(String connectionString, String dbUser, String dbPassword){
