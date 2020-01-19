@@ -7,6 +7,8 @@ import com.api.dalcomponent.repository.UserRepository;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.List;
+
 public class RegisterHandlerTest {
     private IUserRepository<User> userRepo;
     public RegisterHandlerTest() {
@@ -21,10 +23,8 @@ public class RegisterHandlerTest {
 
         Assert.assertEquals(2, userRepo.getAll().size());
 
-        User user = userRepo.getUserByUsername("Vincent");
-
-        userRepo.delete(user);
-
+        List<User> users = userRepo.getAll();
+        userRepo.delete(users.get(1));
         Assert.assertEquals(1, userRepo.getAll().size());
     }
 
