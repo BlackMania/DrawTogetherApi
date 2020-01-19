@@ -1,5 +1,6 @@
-package com.api;
+package com.api.restapi.config;
 
+import com.api.PropertyReader;
 import com.api.dalcomponent.DBContext;
 import com.api.dalcomponent.IDBContext;
 import com.api.dalcomponent.interfaces.IGameRepository;
@@ -9,7 +10,7 @@ import com.api.dalcomponent.repository.UserRepository;
 import com.api.logic.authentication.AuthHandler;
 import com.api.logic.authentication.RegisterHandler;
 import com.api.logic.jsonmanager.JSONResponseBuilderHandler;
-import com.api.logic.jsonmanager.builders.GameHistoryBuilder;
+import com.api.logic.jsonmanager.builders.*;
 import org.glassfish.jersey.internal.inject.AbstractBinder;
 
 public class InjectBinder extends AbstractBinder {

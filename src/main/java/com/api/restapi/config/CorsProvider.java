@@ -1,4 +1,4 @@
-package com.api;
+package com.api.restapi.config;
 
 import javax.ws.rs.core.Feature;
 import javax.ws.rs.core.FeatureContext;

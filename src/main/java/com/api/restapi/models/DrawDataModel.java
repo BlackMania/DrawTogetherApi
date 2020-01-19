@@ -1,8 +1,5 @@
 package com.api.restapi.models;
 
-import java.sql.Timestamp;
-import java.util.Date;
-
 public class DrawDataModel {
     public DrawDataModel() {
     }

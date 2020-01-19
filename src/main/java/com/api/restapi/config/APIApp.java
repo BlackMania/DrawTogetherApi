@@ -1,4 +1,4 @@
-package com.api;
+package com.api.restapi.config;
 
 import com.api.restapi.filter.SecureResourceFilter;
 import com.api.restapi.resources.GameHistoryResource;

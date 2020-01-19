@@ -39,7 +39,7 @@ public class GameHistoryResource {
     @GET
     @Path("gamehistory/me")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getMyData(@Context HttpHeaders headers){
+    public Response getMyGameData(@Context HttpHeaders headers){
         JSONObject returnObject = null;
         String token = headers.getRequestHeader("Authorization").get(0);
         token = token.replace("Bearer ", "");
@@ -55,7 +55,7 @@ public class GameHistoryResource {
         if(returnObject != null)
         {
             return ResponseBuilder.buildResponse(Response.Status.OK, returnObject);
-        } else return ResponseBuilder.buildResponse(Response.Status.INTERNAL_SERVER_ERROR);
+        } else return ResponseBuilder.buildResponse(Response.Status.NOT_FOUND);
 
     }
 

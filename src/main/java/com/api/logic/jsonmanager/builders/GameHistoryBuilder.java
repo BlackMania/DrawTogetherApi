@@ -1,4 +1,4 @@
-package com.api.logic.datalogic.jsonmanager.builders;
+package com.api.logic.jsonmanager.builders;
 
 import com.api.dalcomponent.interfaces.IGameRepository;
 import com.api.dalcomponent.model.DrawData;

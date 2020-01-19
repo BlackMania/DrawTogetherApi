@@ -62,6 +62,10 @@ public class GameRepositoryTest {
         gameRepo.save(game);
 
         Assert.assertEquals(2, gameRepo.getAll().size());
+
+        gameRepo.delete(game);
+
+        Assert.assertEquals(1, gameRepo.getAll().size());
     }
 
 

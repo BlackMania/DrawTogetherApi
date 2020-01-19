@@ -13,7 +13,6 @@ class PasswordHasher {
     private Random random;
 
     PasswordHasher() {
-        generateSalt();
         random = new Random();
     }
 

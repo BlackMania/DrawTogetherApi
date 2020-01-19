@@ -14,16 +14,14 @@ import java.util.List;
 @SuppressWarnings("WeakerAccess")
 public abstract class Repository<T> implements IRepository<T> {
     protected Dao<T, Integer> dao;
-    protected Class<T> clazz;
     private IDBContext context;
     protected final static Logger logger = Logger.getLogger(Repository.class);
 
     @Inject
     public Repository(Class<T> clazz, IDBContext dbContext) {
-        this.clazz = clazz;
         this.context = dbContext;
         try {
-            this.dao = DaoManager.createDao(context.getConnectionSource(), this.clazz);
+            this.dao = DaoManager.createDao(context.getConnectionSource(), clazz);
         } catch (SQLException e) {
             logger.error(e);
         }

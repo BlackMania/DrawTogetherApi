@@ -1,4 +1,3 @@
-/*
 package com.api.logic.authentication;
 
 import com.api.dalcomponent.InMemTableUtils;
@@ -8,7 +7,7 @@ import com.api.dalcomponent.repository.UserRepository;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.sql.SQLException;
+import java.util.List;
 
 public class RegisterHandlerTest {
     private IUserRepository<User> userRepo;
@@ -24,6 +23,11 @@ public class RegisterHandlerTest {
 
         Assert.assertEquals(2, userRepo.getAll().size());
 
+        User user = userRepo.findById(5);
+
+        userRepo.delete(user);
+
+        Assert.assertEquals(1, userRepo.getAll().size());
     }
 
     @Test
@@ -36,4 +40,3 @@ public class RegisterHandlerTest {
         });
     }
 }
-*/
